@@ -2,8 +2,10 @@ import 'dart:ui';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:projectsid/Pages/bottomBar.dart';
 import 'package:projectsid/Pages/home.dart';
 import 'package:projectsid/Pages/passwd.dart';
+import 'package:projectsid/services/services.dart';
 
 import 'signIn.dart';
 
@@ -33,6 +35,10 @@ class arkaPlan extends StatefulWidget {
 }
 
 class _arkaPlanState extends State<arkaPlan> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  AuthService _authService = AuthService();
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -66,6 +72,7 @@ class _arkaPlanState extends State<arkaPlan> {
                     left: 15.0, right: 15.0, top: 20, bottom: 0),
                 //padding: EdgeInsets.symmetric(horizontal: 15),
                 child: new TextField(
+                  controller: _emailController,
                   cursorColor: Colors.white,
                   style: TextStyle(color: Colors.white),
 
@@ -97,6 +104,7 @@ class _arkaPlanState extends State<arkaPlan> {
                     left: 15.0, right: 15.0, top: 20, bottom: 0),
                 //padding: EdgeInsets.symmetric(horizontal: 15),
                 child: new TextField(
+                  controller: _passwordController,
                   cursorColor: Colors.white,
                   style: TextStyle(color: Colors.white),
 
@@ -146,8 +154,15 @@ class _arkaPlanState extends State<arkaPlan> {
                           tileMode: TileMode.repeated),),
                   child: FlatButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => homePage()));
+                      _authService
+                          .signIn(
+                          _emailController.text, _passwordController.text)
+                          .then((value) {
+                        return Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BottomPage()));
+                      });
                     },
                     child: Text(
                       'Login',

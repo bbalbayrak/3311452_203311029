@@ -124,32 +124,7 @@ class _backgroundState extends State<background> {
              ),
            ),
 
-           Padding(
-             padding: const EdgeInsets.all(20.0),
-             child: MaterialButton(
-               focusColor: Colors.yellow,
-               onPressed: () {
-                 Navigator.push(context,
-                     MaterialPageRoute(builder: (_) => yardimIletisim()));
-               }, child: Container(
-               decoration: BoxDecoration( borderRadius: BorderRadius.circular(20),color: Colors.white,border: Border.all(color: Colors.black,width: 1)),
-               height: 50,
-               width: 300,
-               child: Row(
-                 children: [
-                   Padding(
-                     padding: const EdgeInsets.only(left: 10),
-                     child: Icon(Icons.live_help,size: 30,),
-                   ),
-                   Padding(
-                     padding: const EdgeInsets.only(left: 25),
-                     child: Text("Help/Contact Settings",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
-                   ),
-                 ],
-               ),
-             ),
-             ),
-           ),
+
 
            Padding(
              padding: const EdgeInsets.all(20.0),

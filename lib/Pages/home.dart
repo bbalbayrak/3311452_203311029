@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
+import 'package:projectsid/Pages/bottomBar.dart';
 import 'package:projectsid/Pages/search.dart';
 
 import 'account.dart';
@@ -22,22 +22,12 @@ class _homePageState extends State<homePage> {
           backgroundColor: Color(0xFFBC8CF2),
           title: Image.asset('assets/images/campus logo.png',height: 45,),
           centerTitle: true,
-          leading: IconButton(
-            icon: Icon(
-              Icons.supervised_user_circle,size: 27,
-            ),
-            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> const accountPage()));},
-          ),
+
 
 
           actions: [
 
-            IconButton(
-              icon: Icon(
-                Icons.search,size: 27,
-              ),
-              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> const searchPage()));},
-            ),
+
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 1),
             ),
@@ -153,7 +143,7 @@ class _taslakState extends State<taslak> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 1),
               child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.transparent,),
                 width: screenSize.width * .9,
                 height: screenSize.height * .3,
@@ -175,7 +165,7 @@ class _taslakState extends State<taslak> {
                           ),
                         ),
                         width: screenSize.width * .20,
-                        height: screenSize.height * .25,
+                        height: screenSize.height * .20,
 
                       ),
                     ),
@@ -192,7 +182,7 @@ class _taslakState extends State<taslak> {
                           ),
                         ),
                         width: screenSize.width * .26,
-                        height: screenSize.height * .25,
+                        height: screenSize.height * .20,
 
                       ),
                     ),
@@ -209,7 +199,7 @@ class _taslakState extends State<taslak> {
                           ),
                         ),
                         width: screenSize.width * .20,
-                        height: screenSize.height * .25,
+                        height: screenSize.height * .20,
 
                       ),
                     ),
@@ -220,10 +210,10 @@ class _taslakState extends State<taslak> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 15),
+              padding: const EdgeInsets.only(top:1),
               child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.transparent,),
                 width: screenSize.width * .9,
-                height: screenSize.height * .2,
+                height: screenSize.height * .1,
 
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -258,6 +248,7 @@ class _taslakState extends State<taslak> {
 
                       ),
                     ),
+
                   ],
                 ),
               ),

@@ -47,7 +47,7 @@ class _BottomPageState extends State<BottomPage> {
     if (selectedIndex == 0) {
       child = homePage();
     } else if (selectedIndex == 1) {
-      child = searchPage();
+      child = GridSearchScreen();
     } else if (selectedIndex == 2) {
       child = notifPage();
     } else if (selectedIndex == 3) {
@@ -67,7 +67,7 @@ class _BottomPageState extends State<BottomPage> {
     return BottomNavigationBar(
 
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.indigo,
+      backgroundColor: Color(0xFFBC8CF2),
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Home'),
         BottomNavigationBarItem(

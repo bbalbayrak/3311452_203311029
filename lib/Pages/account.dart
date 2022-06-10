@@ -1,13 +1,15 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:projectsid/Pages/accountSett.dart';
 import 'package:projectsid/Pages/privacySett.dart';
+import 'package:projectsid/Pages/userData.dart';
 import 'dart:async';
 
 import 'createAccount.dart';
-import 'helpsett.dart';
+
 import 'infoSett.dart';
 
 class accountPage extends StatefulWidget {
@@ -25,6 +27,7 @@ class _accountPageState extends State<accountPage> {
           backgroundColor: Color(0xFFBC8CF2),
           title: Image.asset('assets/images/campus logo.png',height: 45,),
           centerTitle: true,
+          automaticallyImplyLeading: false,
 
           ),
       body: background(),
@@ -61,8 +64,8 @@ class _backgroundState extends State<background> {
                    padding: const EdgeInsets.all(10),
                    child: Column( mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("203311029@ogr.selcuk.edu.tr",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,color: Colors.white),),
-                        Text("203311029",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,color: Colors.white),),
+                        Text("${UserName}@ogr.selcuk.edu.tr",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,color: Colors.white),),
+                        Text("${UserName} ",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,color: Colors.white),),
                       ],
                    ),
                  ),
@@ -157,7 +160,11 @@ class _backgroundState extends State<background> {
              padding: const EdgeInsets.all(20.0),
              child: MaterialButton(
                focusColor: Colors.yellow,
-               onPressed:(){}, child: Container(
+    onPressed: (){
+    Navigator.push(context,
+    MaterialPageRoute(builder: (context) => createAccount()));
+
+    }, child: Container(
                decoration: BoxDecoration( borderRadius: BorderRadius.circular(20),color: Colors.white,border: Border.all(color: Colors.black,width: 1)),
                height: 50,
                width: 300,

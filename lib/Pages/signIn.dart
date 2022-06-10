@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:projectsid/Pages/createAccount.dart';
 import 'package:projectsid/Pages/home.dart';
+import 'package:projectsid/Pages/userData.dart';
+import 'package:projectsid/services/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class signIn extends StatefulWidget {
   const signIn({Key? key}) : super(key: key);
@@ -24,6 +28,37 @@ class uyeekrani extends StatefulWidget {
 }
 
 class _uyeekraniState extends State<uyeekrani> {
+  AuthService _authService = AuthService();
+  @override
+
+    final TextEditingController _nameController = TextEditingController();
+    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
+    final TextEditingController _passwordAgainController =
+    TextEditingController();
+
+  //LocalStorage başlangıç kısmı
+  setUserName() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setString("userName", UserName);
+  }
+
+  getUserName() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    setState(() {
+      UserName = pref.getString("userName")!;
+      if (UserName == null) {
+        UserName = "";
+      }
+    });
+  }
+
+  void initState() {
+    super.initState();
+    getUserName();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -59,6 +94,7 @@ class _uyeekraniState extends State<uyeekrani> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
+            controller: _nameController,
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
 
@@ -89,6 +125,7 @@ class _uyeekraniState extends State<uyeekrani> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
+            controller: _emailController,
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
 
@@ -119,6 +156,7 @@ class _uyeekraniState extends State<uyeekrani> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
+            controller: _passwordController,
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
 
@@ -168,9 +206,18 @@ class _uyeekraniState extends State<uyeekrani> {
                   tileMode: TileMode.repeated),
             ),
             child: FlatButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => homePage()));
+              onPressed: () {setState(() {
+                UserName = _nameController.text;
+              });
+              setUserName();
+
+
+                _authService
+                    .createPerson(_nameController.text,
+                    _emailController.text, _passwordController.text)
+                    .then((value) {
+
+                });
               },
               child: Text(
                 'Sign In',
@@ -182,7 +229,31 @@ class _uyeekraniState extends State<uyeekrani> {
 
 
 
+          Container(
 
+            child: Padding(
+              padding: const EdgeInsets.only(left: 150,right: 150),
+              child: MaterialButton(onPressed: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => createAccount()));
+
+              },
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 12),
+                      child: Icon(Icons.arrow_back,size: 15,color: Colors.white,),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 0),
+                      child: Text("Back",style: TextStyle(color: Colors.white, fontSize: 15),),
+                    ),
+                  ],
+                ),
+
+              ),
+            ),
+          )
        ]
        ),
        )

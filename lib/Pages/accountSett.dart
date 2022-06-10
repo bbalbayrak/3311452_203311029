@@ -1,38 +1,145 @@
+import 'dart:async';
+import 'dart:ui';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:projectsid/Pages/privacySett.dart';
+import 'dart:async';
 
-class accountSett extends StatelessWidget {
+
+import 'infoSett.dart';
+
+class accountSett extends StatefulWidget {
   const accountSett({Key? key}) : super(key: key);
 
   @override
+  State<accountSett> createState() => _accountSettState();
+}
+
+class _accountSettState extends State<accountSett> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFBC8CF2),
+        title: Image.asset('assets/images/campus logo.png',height: 45,),
+        centerTitle: true,
+
+
+      ),
+      body: background(),
+    );
+
+
+
+  }
+}
+class background extends StatefulWidget {
+  const background({Key? key}) : super(key: key);
+
+  @override
+  State<background> createState() => _backgroundState();
+}
+
+class _backgroundState extends State<background> {
+  @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        //bottomNavigationBar: bottomNavigationBar(),
-        appBar: AppBar(
-          backgroundColor: Color(0xFFBC8CF2),
-          title: Image.asset('assets/images/campus logo.png',height: 45,),
-          centerTitle: true,
+    return Container(
+      width: screenSize.width,
+      height: screenSize.height,
+      color: Colors.deepPurple[300],
+      child: Column(
+        children: [
 
-        ),
-        body: Container(
-          width: screenSize.width,
-          height: screenSize.height,
-          color: Colors.deepPurple[300],
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Column(
-              children: [
-                blockBuilder("Account Info"),
-                blockBuilder("Change Your Password"),
-                blockBuilder("Delete The Account"),
-              ],
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: MaterialButton(
+              focusColor: Colors.yellow,
+              onPressed: () {}, child: Container(
+              decoration:
+              BoxDecoration( borderRadius: BorderRadius.circular(20),color: Colors.white,border: Border.all(color: Colors.black,width: 1)),
+              height: 50,
+              width: 300,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Icon(Icons.account_circle,size: 30,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Text("Account Settings",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
+                  ),
+                ],
+              ),
             ),
-          ]),
-        ),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: MaterialButton(
+              focusColor: Colors.yellow,
+              onPressed: () {
+              }, child: Container(
+              decoration: BoxDecoration( borderRadius: BorderRadius.circular(20),color: Colors.white,border: Border.all(color: Colors.black,width: 1)),
+              height: 50,
+              width: 300,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Icon(Icons.security,size: 30,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: Text("Privacy Settings",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
+                  ),
+                ],
+              ),
+            ),
+            ),
+          ),
+
+
+
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: MaterialButton(
+              focusColor: Colors.yellow,
+              onPressed: () {
+              }, child: Container(
+              decoration: BoxDecoration( borderRadius: BorderRadius.circular(20),color: Colors.white,border: Border.all(color: Colors.black,width: 1)),
+              height: 50,
+              width: 300,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Icon(Icons.info_outline,size: 30,),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 85),
+                    child: Text("About",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
+                  ),
+                ],
+              ),
+            ),
+            ),
+          ),
+
+
+        ],
       ),
     );
   }
 }
+
+
+
+
+
+
+
+

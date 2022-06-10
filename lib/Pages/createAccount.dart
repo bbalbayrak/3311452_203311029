@@ -104,6 +104,7 @@ class _arkaPlanState extends State<arkaPlan> {
                     left: 15.0, right: 15.0, top: 20, bottom: 0),
                 //padding: EdgeInsets.symmetric(horizontal: 15),
                 child: new TextField(
+                  obscureText: true,
                   controller: _passwordController,
                   cursorColor: Colors.white,
                   style: TextStyle(color: Colors.white),

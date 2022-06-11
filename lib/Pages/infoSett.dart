@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:projectsid/Pages/bottomBar.dart';
 import 'package:projectsid/Pages/privacySett.dart';
 import 'dart:async';
 
@@ -24,6 +25,9 @@ class _infoAboutState extends State<infoAbout> {
         backgroundColor: Color(0xFFBC8CF2),
         title: Image.asset('assets/images/campus logo.png',height: 45,),
         centerTitle: true,
+        automaticallyImplyLeading: false,
+        leading: IconButton(icon: Icon(Icons.arrow_back),onPressed: () {Navigator.push(context,
+            MaterialPageRoute(builder: (_) => BottomPage()));},),
 
 
       ),

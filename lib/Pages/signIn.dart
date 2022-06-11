@@ -156,6 +156,7 @@ class _uyeekraniState extends State<uyeekrani> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
+            obscureText: true,
             controller: _passwordController,
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),

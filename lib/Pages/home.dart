@@ -2,8 +2,11 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:projectsid/Pages/Firestoreimage.dart';
 import 'package:projectsid/Pages/bottomBar.dart';
+import 'package:projectsid/Pages/casualties.dart';
 import 'package:projectsid/Pages/search.dart';
+import 'package:projectsid/Pages/wants.dart';
 
 import 'account.dart';
 
@@ -18,6 +21,7 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Color(0xFFBC8CF2),
@@ -36,7 +40,8 @@ class _homePageState extends State<homePage> {
 
           ],
         ),
-        body: taslak());
+        body: taslak(),
+        );
   }
 }
 
@@ -54,7 +59,7 @@ class _taslakState extends State<taslak> {
     return Container(
       width: screenSize.width,
       height: screenSize.height,
-      color: Colors.deepPurple[300],
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -74,68 +79,12 @@ class _taslakState extends State<taslak> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: const Color(0xff7c94b6),
-                  image: const DecorationImage(
-                    image: AssetImage("assets/images/etkinlik4.jpg"),
-                    fit: BoxFit.cover,
-                  ),
                   border: Border.all(
                     color: Colors.transparent,
                   ),
                 ),
+                      child: usersData(),
                     ),
-
-
-                   Container(
-                 width: screenSize.width * .9,
-                 height: screenSize.height * .3,
-                 decoration: BoxDecoration(
-                 borderRadius: BorderRadius.circular(20),
-                 color: const Color(0xff7c94b6),
-                 image: const DecorationImage(
-                 image: AssetImage("assets/images/etkinlik1.jpeg"),
-                   fit: BoxFit.cover,
-                 ),
-                border: Border.all(
-                 color: Colors.transparent,
-                  ),
-                 ),
-               ),
-
-                  Container(
-                    width: screenSize.width * .9,
-                    height: screenSize.height * .3,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(0xff7c94b6),
-                      image: const DecorationImage(
-                        image: AssetImage("assets/images/etkinlik2.jpg"),
-                        fit: BoxFit.cover,
-                      ),
-                      border: Border.all(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                  ),
-
-                  Container(
-                    width: screenSize.width * .9,
-                    height: screenSize.height * .3,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(0xff7c94b6),
-                      image: const DecorationImage(
-                        image: AssetImage("assets/images/etkinlik3.jfif"),
-                        fit: BoxFit.cover,
-                      ),
-                      border: Border.all(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                  ),
-
-
-
-
 
 
 
@@ -145,36 +94,47 @@ class _taslakState extends State<taslak> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 1),
-              child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.transparent,),
+              child: Container(decoration:
+              BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.transparent,),
                 width: screenSize.width * .9,
                 height: screenSize.height * .3,
 
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    MaterialButton(onPressed:(){},
+                    MaterialButton(onPressed:(){
+
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => wantsPage()));
+                    },
                       child: Container(
                         decoration: BoxDecoration(
-
+                          border: Border.all(width: 0.8, color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.purple[100],
+                          color: Color(0xFFBC8CF2),
                       ),
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 10,left: 18,right: 10),
+                          padding: const EdgeInsets.only(top: 10,left: 25,right: 10),
                           child: Text(
-                            "Wants",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black, fontSize: 15),
+                            "Wants",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black, fontSize: 17),
                           ),
                         ),
-                        width: screenSize.width * .20,
+                        width: screenSize.width * .25,
                         height: screenSize.height * .20,
 
                       ),
                     ),
 
-                    MaterialButton(onPressed:(){},
+                    MaterialButton(onPressed:(){
+
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => casualPage()));
+
+                    },
                       child: Container(decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.purple[100],
+                        border: Border.all(width: 0.8, color: Colors.black),
+                        color: Color(0xFFBC8CF2),
                       ),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 10,left: 14,right: 10),
@@ -187,24 +147,6 @@ class _taslakState extends State<taslak> {
 
                       ),
                     ),
-
-                    MaterialButton(onPressed:(){},
-                      child: Container(decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.purple[100],
-                      ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 10,left: 17,right: 10),
-                          child: Text(
-                            "Needs",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black, fontSize: 15),
-                          ),
-                        ),
-                        width: screenSize.width * .20,
-                        height: screenSize.height * .20,
-
-                      ),
-                    ),
-
 
                   ],
                 ),
@@ -221,7 +163,10 @@ class _taslakState extends State<taslak> {
                   children: [
 
                     MaterialButton(onPressed:(){},
-                      child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.purple[100],),
+                      child: Container(decoration: BoxDecoration(
+                        border: Border.all(width: 0.8, color: Colors.black),
+                        borderRadius: BorderRadius.circular(5),
+                        color: Color(0xFFBC8CF2),),
                         alignment: Alignment.center,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -235,7 +180,10 @@ class _taslakState extends State<taslak> {
                       ),
                     ),
                     MaterialButton(onPressed:(){},
-                      child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.purple[100],),
+                      child: Container(decoration: BoxDecoration(
+                        border: Border.all(width: 0.8, color: Colors.black),
+                        borderRadius: BorderRadius.circular(5),
+                        color: Color(0xFFBC8CF2),),
                         alignment: Alignment.center,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30),

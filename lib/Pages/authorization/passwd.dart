@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectsid/Pages/authorization/createAccount.dart';
 import 'package:projectsid/Pages/home.dart';
 
 class passwdPage extends StatefulWidget {
@@ -10,7 +11,7 @@ class _passwdPageState extends State<passwdPage> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: passwd(),
       ),
@@ -19,7 +20,7 @@ class _passwdPageState extends State<passwdPage> {
 }
 
 class passwd extends StatefulWidget {
-  passwd({Key? key}) : super(key: key);
+  const passwd({Key? key}) : super(key: key);
 
   @override
   State<passwd> createState() => _passwdState();
@@ -41,10 +42,10 @@ class _passwdState extends State<passwd> {
                 padding: const EdgeInsets.only(top: 200),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 20),
                       child: Padding(
-                        padding: const EdgeInsets.only(bottom: 30),
+                        padding: EdgeInsets.only(bottom: 30),
                         child: Text(
                           "Please enter your e-mail address to reset your password.",
                           style: TextStyle(
@@ -55,9 +56,9 @@ class _passwdState extends State<passwd> {
                         ),
                       ),
                     ),
-                    SizedBox(),
-                     Padding(
-                       padding: const EdgeInsets.all(17),
+                    const SizedBox(),
+                     const Padding(
+                       padding: EdgeInsets.all(17),
                        child: TextField(
                         cursorColor: Colors.white,
                         style: TextStyle(color: Colors.white),
@@ -78,7 +79,7 @@ class _passwdState extends State<passwd> {
                           contentPadding: EdgeInsets.all(10.0),
                           hintText: 'Enter your email',
                           labelText: 'Email',
-                          prefixIcon: const Icon(
+                          prefixIcon: Icon(
                             Icons.password,
                             color: Colors.white,
                           ),
@@ -94,7 +95,7 @@ class _passwdState extends State<passwd> {
                         decoration: BoxDecoration(
                           color: Colors.black45,
                           borderRadius: BorderRadius.circular(20),
-                          gradient: new LinearGradient(
+                          gradient: const LinearGradient(
                               colors: [
                                 Color.fromARGB(255, 205, 3, 255),
                                 Color.fromARGB(255, 74, 5, 99),
@@ -110,15 +111,41 @@ class _passwdState extends State<passwd> {
                         child: FlatButton(
                           onPressed: () {
                             Navigator.push(context,
-                                MaterialPageRoute(builder: (_) => homePage()));
+                                MaterialPageRoute(builder: (_) => const homePage()));
                           },
-                          child: Text(
+                          child: const Text(
                             'Reset Password',
                             style: TextStyle(color: Colors.white, fontSize: 25),
                           ),
                         ),
                       ),
+
                     ),
+                    Container(
+
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 150,right: 150),
+                        child: MaterialButton(onPressed: (){
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => createAccount()));
+
+                        },
+                          child: Row(
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(left: 12),
+                                child: Icon(Icons.arrow_back,size: 15,color: Colors.white,),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 0),
+                                child: Text("Back",style: TextStyle(color: Colors.white, fontSize: 15),),
+                              ),
+                            ],
+                          ),
+
+                        ),
+                      ),
+                    )
 
                   ],
                 ),

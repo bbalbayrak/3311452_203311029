@@ -1,17 +1,12 @@
-import 'dart:async';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:projectsid/Pages/Firestoreimage.dart';
-import 'package:projectsid/Pages/bottomBar.dart';
-import 'package:projectsid/Pages/casualties.dart';
-import 'package:projectsid/Pages/search.dart';
-import 'package:projectsid/Pages/wants.dart';
+import 'package:projectsid/cloudDatas/Firestoreimage.dart';
+import 'package:projectsid/cloudDatas/casualties.dart';
+import 'package:projectsid/cloudDatas/wants.dart';
 
-import 'account.dart';
 
 class homePage extends StatefulWidget {
-  homePage({Key? key}) : super(key: key);
+  const homePage({Key? key}) : super(key: key);
 
   @override
   State<homePage> createState() => _homePageState();
@@ -24,13 +19,13 @@ class _homePageState extends State<homePage> {
 
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Color(0xFFBC8CF2),
+          backgroundColor: const Color(0xFFBC8CF2),
           title: Image.asset('assets/images/campus logo.png',height: 45,),
           centerTitle: true,
 
 
 
-          actions: [
+          actions: const [
 
 
             Padding(
@@ -40,13 +35,13 @@ class _homePageState extends State<homePage> {
 
           ],
         ),
-        body: taslak(),
+        body: const taslak(),
         );
   }
 }
 
 class taslak extends StatefulWidget {
-  taslak({Key? key}) : super(key: key);
+  const taslak({Key? key}) : super(key: key);
 
   @override
   State<taslak> createState() => _taslakState();
@@ -64,7 +59,7 @@ class _taslakState extends State<taslak> {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            Container(
+            SizedBox(
               width: screenSize.width * .9,
               height: screenSize.height * .3,
 
@@ -83,7 +78,7 @@ class _taslakState extends State<taslak> {
                     color: Colors.transparent,
                   ),
                 ),
-                      child: usersData(),
+                      child: const usersData(),
                     ),
 
 
@@ -105,16 +100,16 @@ class _taslakState extends State<taslak> {
                     MaterialButton(onPressed:(){
 
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => wantsPage()));
+                          MaterialPageRoute(builder: (_) => const wantsPage()));
                     },
                       child: Container(
                         decoration: BoxDecoration(
                           border: Border.all(width: 0.8, color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
-                          color: Color(0xFFBC8CF2),
+                          color: const Color(0xFFBC8CF2),
                       ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 10,left: 25,right: 10),
+                        child: const Padding(
+                          padding: EdgeInsets.only(top: 10,left: 25,right: 10),
                           child: Text(
                             "Wants",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black, fontSize: 17),
                           ),
@@ -128,16 +123,16 @@ class _taslakState extends State<taslak> {
                     MaterialButton(onPressed:(){
 
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => casualPage()));
+                          MaterialPageRoute(builder: (_) => const casualPage()));
 
                     },
                       child: Container(decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(width: 0.8, color: Colors.black),
-                        color: Color(0xFFBC8CF2),
+                        color: const Color(0xFFBC8CF2),
                       ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 10,left: 14,right: 10),
+                        child: const Padding(
+                          padding: EdgeInsets.only(top: 10,left: 14,right: 10),
                           child: Text(
                             "Casualties",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black, fontSize: 17,),
                           ),
@@ -166,10 +161,10 @@ class _taslakState extends State<taslak> {
                       child: Container(decoration: BoxDecoration(
                         border: Border.all(width: 0.8, color: Colors.black),
                         borderRadius: BorderRadius.circular(5),
-                        color: Color(0xFFBC8CF2),),
+                        color: const Color(0xFFBC8CF2),),
                         alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
                           child: Text(
                             "Suggestions"
                            ,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w800,color: Colors.black),),
@@ -183,10 +178,10 @@ class _taslakState extends State<taslak> {
                       child: Container(decoration: BoxDecoration(
                         border: Border.all(width: 0.8, color: Colors.black),
                         borderRadius: BorderRadius.circular(5),
-                        color: Color(0xFFBC8CF2),),
+                        color: const Color(0xFFBC8CF2),),
                         alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
                           child: Text(
                             "Complaints"
                             ,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w800,color: Colors.black),

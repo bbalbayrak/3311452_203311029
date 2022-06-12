@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projectsid/Pages/createAccount.dart';
-import 'package:projectsid/Pages/home.dart';
-import 'package:projectsid/Pages/userData.dart';
+import 'package:projectsid/Pages/authorization/createAccount.dart';
+import 'package:projectsid/cloudDatas/userData.dart';
 import 'package:projectsid/services/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -15,7 +14,7 @@ class signIn extends StatefulWidget {
 class _signInState extends State<signIn> {
   @override
   Widget build(BuildContext context) {
-    return uyeekrani();
+    return const uyeekrani();
   }
 }
 
@@ -28,7 +27,7 @@ class uyeekrani extends StatefulWidget {
 }
 
 class _uyeekraniState extends State<uyeekrani> {
-  AuthService _authService = AuthService();
+  final AuthService _authService = AuthService();
   @override
 
     final TextEditingController _nameController = TextEditingController();
@@ -47,12 +46,11 @@ class _uyeekraniState extends State<uyeekrani> {
     SharedPreferences pref = await SharedPreferences.getInstance();
     setState(() {
       UserName = pref.getString("userName")!;
-      if (UserName == null) {
-        UserName = "";
-      }
+      UserName = "";
     });
   }
 
+  @override
   void initState() {
     super.initState();
     getUserName();
@@ -81,7 +79,7 @@ class _uyeekraniState extends State<uyeekrani> {
       child: Container(
       //width: 200,
       //height: 150,
-      child: Container(
+      child: SizedBox(
 
       child: Image.asset('assets/images/campus logo.png'),width: screenSize.width*0.7,
       height: screenSize.height*0.2,),
@@ -96,9 +94,9 @@ class _uyeekraniState extends State<uyeekrani> {
           child: TextField(
             controller: _nameController,
             cursorColor: Colors.white,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
 
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelStyle: TextStyle(color: Colors.white),
               hintStyle: TextStyle(color: Colors.white60),
               border: OutlineInputBorder(
@@ -114,7 +112,7 @@ class _uyeekraniState extends State<uyeekrani> {
               contentPadding: EdgeInsets.all(10.0),
               hintText: 'Enter your student number',
               labelText: 'Student Number',
-              prefixIcon: const Icon(
+              prefixIcon: Icon(
                 Icons.numbers,
                 color: Colors.white,
               ),
@@ -127,9 +125,9 @@ class _uyeekraniState extends State<uyeekrani> {
           child: TextField(
             controller: _emailController,
             cursorColor: Colors.white,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
 
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelStyle: TextStyle(color: Colors.white),
               hintStyle: TextStyle(color: Colors.white60),
               border: OutlineInputBorder(
@@ -145,7 +143,7 @@ class _uyeekraniState extends State<uyeekrani> {
               contentPadding: EdgeInsets.all(10.0),
               hintText: '@ogr.selcuk.edu.tr',
               labelText: 'Email',
-              prefixIcon: const Icon(
+              prefixIcon: Icon(
                 Icons.email,
                 color: Colors.white,
               ),
@@ -159,9 +157,9 @@ class _uyeekraniState extends State<uyeekrani> {
             obscureText: true,
             controller: _passwordController,
             cursorColor: Colors.white,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
 
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelStyle: TextStyle(color: Colors.white),
               hintStyle: TextStyle(color: Colors.white60),
               border: OutlineInputBorder(
@@ -177,7 +175,7 @@ class _uyeekraniState extends State<uyeekrani> {
               contentPadding: EdgeInsets.all(10.0),
               hintText: 'Enter your password',
               labelText: 'Password',
-              prefixIcon: const Icon(
+              prefixIcon: Icon(
                 Icons.password,
                 color: Colors.white,
               ),
@@ -193,7 +191,7 @@ class _uyeekraniState extends State<uyeekrani> {
             decoration: BoxDecoration(
                 color: Colors.black45,
                 borderRadius: BorderRadius.circular(20),
-              gradient: new LinearGradient(
+              gradient: const LinearGradient(
                   colors: [
                     Color.fromARGB(255, 205, 3, 255),
                     Color.fromARGB(255, 74, 5, 99),
@@ -220,7 +218,7 @@ class _uyeekraniState extends State<uyeekrani> {
 
                 });
               },
-              child: Text(
+              child: const Text(
                 'Sign In',
                 style: TextStyle(color: Colors.white, fontSize: 25),
               ),
@@ -240,13 +238,13 @@ class _uyeekraniState extends State<uyeekrani> {
 
               },
                 child: Row(
-                  children: [
+                  children: const [
                     Padding(
-                      padding: const EdgeInsets.only(left: 12),
+                      padding: EdgeInsets.only(left: 12),
                       child: Icon(Icons.arrow_back,size: 15,color: Colors.white,),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 0),
+                      padding: EdgeInsets.only(left: 0),
                       child: Text("Back",style: TextStyle(color: Colors.white, fontSize: 15),),
                     ),
                   ],

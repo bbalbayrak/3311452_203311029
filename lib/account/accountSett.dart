@@ -1,15 +1,9 @@
-import 'dart:async';
-import 'dart:ui';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:projectsid/Pages/bottomBar.dart';
-import 'package:projectsid/Pages/privacySett.dart';
-import 'dart:async';
+import 'package:projectsid/Pages/graf.dart';
 
 
-import 'infoSett.dart';
 
 class accountSett extends StatefulWidget {
   const accountSett({Key? key}) : super(key: key);
@@ -27,17 +21,17 @@ class _accountSettState extends State<accountSett> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFBC8CF2),
+        backgroundColor: const Color(0xFFBC8CF2),
         title: Image.asset('assets/images/campus logo.png',height: 45,),
         centerTitle: true,
           automaticallyImplyLeading: false,
-        leading: IconButton(icon: Icon(Icons.arrow_back),onPressed: () {Navigator.push(context,
+        leading: IconButton(icon: const Icon(Icons.arrow_back),onPressed: () {Navigator.push(context,
             MaterialPageRoute(builder: (_) => BottomPage()));},),
 
 
 
       ),
-      body: background(),
+      body: const background(),
     );
 
   }
@@ -66,19 +60,23 @@ class _backgroundState extends State<background> {
             padding: const EdgeInsets.all(20.0),
             child: MaterialButton(
               focusColor: Colors.yellow,
-              onPressed: () {}, child: Container(
+              onPressed: () {
+
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) =>  chartData()));
+              }, child: Container(
               decoration:
               BoxDecoration( borderRadius: BorderRadius.circular(20),color: Colors.white,border: Border.all(color: Colors.black,width: 1)),
               height: 50,
               width: 300,
               child: Row(
-                children: [
+                children: const [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: EdgeInsets.only(left: 10),
                     child: Icon(Icons.info,size: 30,),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 40),
+                    padding: EdgeInsets.only(left: 40),
                     child: Text("Account Info",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
                   ),
                 ],
@@ -97,13 +95,13 @@ class _backgroundState extends State<background> {
               height: 50,
               width: 300,
               child: Row(
-                children: [
+                children: const [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: EdgeInsets.only(left: 10),
                     child: Icon(Icons.language,size: 30,),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 70),
+                    padding: EdgeInsets.only(left: 70),
                     child: Text("Language",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
                   ),
                 ],
@@ -124,13 +122,13 @@ class _backgroundState extends State<background> {
               height: 50,
               width: 300,
               child: Row(
-                children: [
+                children: const [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: EdgeInsets.only(left: 10),
                     child: Icon(Icons.delete,size: 30,),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 17),
+                    padding: EdgeInsets.only(left: 17),
                     child: Text("Delete Your Account",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
                   ),
                 ],

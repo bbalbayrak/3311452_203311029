@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projectsid/Pages/account.dart';
+import 'package:projectsid/account/account.dart';
 import 'package:projectsid/Pages/home.dart';
 import 'package:projectsid/Pages/notification.dart';
 import 'package:projectsid/Pages/search.dart';
@@ -45,13 +44,13 @@ class _BottomPageState extends State<BottomPage> {
     int Data = 0;
     Widget child = Container();
     if (selectedIndex == 0) {
-      child = homePage();
+      child = const homePage();
     } else if (selectedIndex == 1) {
       child = GridSearchScreen();
     } else if (selectedIndex == 2) {
       child = notifPage();
     } else if (selectedIndex == 3) {
-      child = accountPage();
+      child = const accountPage();
     }
 
     return Scaffold(
@@ -67,7 +66,7 @@ class _BottomPageState extends State<BottomPage> {
     return BottomNavigationBar(
 
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Color(0xFFBC8CF2),
+      backgroundColor: const Color(0xFFBC8CF2),
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Home'),
         BottomNavigationBarItem(

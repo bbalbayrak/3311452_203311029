@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class usersData extends StatefulWidget {
-  usersData({Key? key}) : super(key: key);
+  const usersData({Key? key}) : super(key: key);
 
   @override
   State<usersData> createState() => _usersDataState();
@@ -20,12 +20,12 @@ class _usersDataState extends State<usersData> {
     return Container(
       width: screenSize.width,
       height: screenSize.height,
-      color: Color.fromARGB(255, 1, 0, 26),
+      color: const Color.fromARGB(255, 1, 0, 26),
       child: StreamBuilder<QuerySnapshot>(
           stream: musicInfo.snapshots(),
           builder: (BuildContext context, AsyncSnapshot asyncSnapshot) {
             //just add this line
-            if (asyncSnapshot.data == null) return CircularProgressIndicator();
+            if (asyncSnapshot.data == null) return const CircularProgressIndicator();
 
             List<DocumentSnapshot> docSnap = asyncSnapshot.data.docs;
             return ListView.builder(
@@ -33,7 +33,7 @@ class _usersDataState extends State<usersData> {
               itemCount: docSnap.length,
               itemBuilder: (context, index) {
                 return Flexible(
-                  child: Container(
+                  child: SizedBox(
                     width: screenSize.width * .9,
                     height: screenSize.height * .3,
                     child: Row(

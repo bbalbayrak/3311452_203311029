@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projectsid/Pages/bottomBar.dart';
-import 'package:projectsid/Pages/home.dart';
 import 'functions.dart';
 
 class wantsPage extends StatefulWidget {
@@ -17,9 +16,9 @@ class _wantsPageState extends State<wantsPage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: IconButton(icon: Icon(Icons.arrow_back),onPressed: () {Navigator.push(context,
+          leading: IconButton(icon: const Icon(Icons.arrow_back),onPressed: () {Navigator.push(context,
               MaterialPageRoute(builder: (_) => BottomPage()));},),
-          backgroundColor: Color(0xFFBC8CF2),
+          backgroundColor: const Color(0xFFBC8CF2),
           title: Image.asset('assets/images/campus logo.png',height: 45,),
           centerTitle: true,
 
@@ -29,7 +28,7 @@ class _wantsPageState extends State<wantsPage> {
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
-            children: [usersData()],
+            children: const [wantsData()],
           ),
         ),
       ),

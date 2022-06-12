@@ -129,7 +129,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
   ];
   List<String>? foodListSearch;
   final FocusNode _textFocusNode = FocusNode();
-  TextEditingController? _textEditingController = TextEditingController();
+  final TextEditingController? _textEditingController = TextEditingController();
   @override
   void dispose() {
     _textFocusNode.dispose();
@@ -142,7 +142,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
     return Scaffold(
         appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Color(0xFFBC8CF2),
+            backgroundColor: const Color(0xFFBC8CF2),
             title: Container(
               decoration: BoxDecoration(
                   color:  Colors.white60,
@@ -151,7 +151,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
                 controller: _textEditingController,
                 focusNode: _textFocusNode,
                 cursorColor: Colors.black,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     enabledBorder: InputBorder.none,
@@ -166,7 +166,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
                             (element) => element.contains(value.toUpperCase()))
                         .toList();
                     if (_textEditingController!.text.isNotEmpty &&
-                        foodListSearch!.length == 0) {
+                        foodListSearch!.isEmpty) {
                       print('foodListSearch length ${foodListSearch!.length}');
                     }
                   });
@@ -174,21 +174,21 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
               ),
             )),
         body: _textEditingController!.text.isNotEmpty &&
-            foodListSearch!.length == 0
+            foodListSearch!.isEmpty
             ? Center(
           child: Padding(
             padding: const EdgeInsets.all(18.0),
             child: Column(
-              children: [
+              children: const [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Icon(
                     Icons.search_off,
                     size: 160,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Text(
                     'No results found,\nPlease try different keyword',
                     style: TextStyle(
@@ -200,7 +200,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
           ),
         )
             : GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 1,
               childAspectRatio: 7.5,
               crossAxisSpacing: 12,
@@ -214,7 +214,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       backgroundColor: Colors.deepPurple,
                       child: Icon(Icons.account_balance,color: Colors.white,),
                     ),
@@ -223,7 +223,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
                         : foodList[index]),
                     MaterialButton(
                       minWidth: 50,
-                      child: Icon(Icons.arrow_circle_right,
+                      child: const Icon(Icons.arrow_circle_right,
                           color: Color(0xFFBC8CF2),),
                       onPressed: () {},
                     ),

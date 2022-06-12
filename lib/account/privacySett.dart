@@ -1,14 +1,8 @@
-import 'dart:async';
-import 'dart:ui';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:projectsid/Pages/bottomBar.dart';
-import 'package:projectsid/Pages/privacySett.dart';
-import 'dart:async';
 
 
-import 'infoSett.dart';
 
 class guvenlikAyarlari extends StatefulWidget {
   const guvenlikAyarlari({Key? key}) : super(key: key);
@@ -22,16 +16,16 @@ class _guvenlikAyarlariState extends State<guvenlikAyarlari> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFBC8CF2),
+        backgroundColor: const Color(0xFFBC8CF2),
         title: Image.asset('assets/images/campus logo.png',height: 45,),
         centerTitle: true,
         automaticallyImplyLeading: false,
-        leading: IconButton(icon: Icon(Icons.arrow_back),onPressed: () {Navigator.push(context,
+        leading: IconButton(icon: const Icon(Icons.arrow_back),onPressed: () {Navigator.push(context,
             MaterialPageRoute(builder: (_) => BottomPage()));},),
 
 
       ),
-      body: background(),
+      body: const background(),
     );
 
 
@@ -66,14 +60,14 @@ class _backgroundState extends State<background> {
               height: 50,
               width: 300,
               child: Row(
-                children: [
+                children: const [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Icon(Icons.account_circle,size: 30,),
+                    padding: EdgeInsets.only(left: 10),
+                    child: Icon(Icons.password,size: 30,),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 40),
-                    child: Text("Account Settings",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
+                    padding: EdgeInsets.only(left: 40),
+                    child: Text("Password Settings",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
                   ),
                 ],
               ),
@@ -91,14 +85,14 @@ class _backgroundState extends State<background> {
               height: 50,
               width: 300,
               child: Row(
-                children: [
+                children: const [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Icon(Icons.security,size: 30,),
+                    padding: EdgeInsets.only(left: 10),
+                    child: Icon(Icons.login,size: 30,),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 40),
-                    child: Text("Privacy Settings",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
+                    padding: EdgeInsets.only(left: 15),
+                    child: Text("Saved Login Information",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
                   ),
                 ],
               ),
@@ -118,14 +112,14 @@ class _backgroundState extends State<background> {
               height: 50,
               width: 300,
               child: Row(
-                children: [
+                children: const [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Icon(Icons.info_outline,size: 30,),
+                    padding: EdgeInsets.only(left: 10),
+                    child: Icon(Icons.security_rounded,size: 30,),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 85),
-                    child: Text("About",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
+                    padding: EdgeInsets.only(left: 50),
+                    child: Text("Security Check",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 20,),),
                   ),
                 ],
               ),

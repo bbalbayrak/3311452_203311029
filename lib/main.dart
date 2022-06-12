@@ -2,9 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:projectsid/Pages/Firestoreimage.dart';
-import 'package:projectsid/Pages/bottomBar.dart';
-import 'package:projectsid/Pages/createAccount.dart';
+import 'package:projectsid/Pages/authorization/createAccount.dart';
 
 
 void main () async {
@@ -25,7 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: createAccount());
+        home:MyHomePage());
 
   }
 }
@@ -34,7 +32,6 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   void initState() {
     super.initState();
@@ -48,7 +45,20 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Container(
         color: Color.fromARGB(255, 1, 0, 26),
-        child: Image(image: AssetImage('assets/images/campus logo.png'))
+        child: Image(image: AssetImage("assets/images/campus logo.png")));
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+          child: Text(
+            "Home page",
+            textScaleFactor: 2,
+          )),
     );
   }
 }

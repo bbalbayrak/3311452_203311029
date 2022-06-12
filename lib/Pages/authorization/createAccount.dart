@@ -1,10 +1,7 @@
-import 'dart:ui';
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:projectsid/Pages/bottomBar.dart';
-import 'package:projectsid/Pages/home.dart';
-import 'package:projectsid/Pages/passwd.dart';
+import 'package:projectsid/Pages/authorization/passwd.dart';
 import 'package:projectsid/services/services.dart';
 
 import 'signIn.dart';
@@ -20,7 +17,7 @@ class _createAccount extends State<createAccount> {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
-    return Scaffold(
+    return const Scaffold(
       
       body: arkaPlan(),
     );
@@ -28,7 +25,7 @@ class _createAccount extends State<createAccount> {
 }
 
 class arkaPlan extends StatefulWidget {
-  arkaPlan({Key? key}) : super(key: key);
+  const arkaPlan({Key? key}) : super(key: key);
 
   @override
   State<arkaPlan> createState() => _arkaPlanState();
@@ -38,7 +35,7 @@ class _arkaPlanState extends State<arkaPlan> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  AuthService _authService = AuthService();
+  final AuthService _authService = AuthService();
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -58,7 +55,7 @@ class _arkaPlanState extends State<arkaPlan> {
                   child: Container(
                     //width: 200,
                     //height: 150,
-                    child: Container(
+                    child: SizedBox(
 
                         child: Image.asset('assets/images/campus logo.png'),width: screenSize.width*0.7,
                     height: screenSize.height*0.2,),
@@ -71,12 +68,12 @@ class _arkaPlanState extends State<arkaPlan> {
                 padding: const EdgeInsets.only(
                     left: 15.0, right: 15.0, top: 20, bottom: 0),
                 //padding: EdgeInsets.symmetric(horizontal: 15),
-                child: new TextField(
+                child: TextField(
                   controller: _emailController,
                   cursorColor: Colors.white,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
 
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelStyle: TextStyle(color: Colors.white),
                     hintStyle: TextStyle(color: Colors.white60),
                     border: OutlineInputBorder(
@@ -92,7 +89,7 @@ class _arkaPlanState extends State<arkaPlan> {
                     contentPadding: EdgeInsets.all(10.0),
                     hintText: 'Enter your email',
                     labelText: 'Email',
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.email,
                       color: Colors.white,
                     ),
@@ -103,13 +100,13 @@ class _arkaPlanState extends State<arkaPlan> {
                 padding: const EdgeInsets.only(
                     left: 15.0, right: 15.0, top: 20, bottom: 0),
                 //padding: EdgeInsets.symmetric(horizontal: 15),
-                child: new TextField(
+                child: TextField(
                   obscureText: true,
                   controller: _passwordController,
                   cursorColor: Colors.white,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
 
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelStyle: TextStyle(color: Colors.white),
                     hintStyle: TextStyle(color: Colors.white60),
                     border: OutlineInputBorder(
@@ -125,7 +122,7 @@ class _arkaPlanState extends State<arkaPlan> {
                     contentPadding: EdgeInsets.all(10.0),
                     hintText: 'Enter your password',
                     labelText: 'Password',
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.password,
                       color: Colors.white,
                     ),
@@ -141,7 +138,7 @@ class _arkaPlanState extends State<arkaPlan> {
 
                       color: Colors.black45,
                       borderRadius: BorderRadius.circular(20),
-                      gradient: new LinearGradient(
+                      gradient: const LinearGradient(
                           colors: [
                             Color.fromARGB(255, 205, 3, 255),
                             Color.fromARGB(255, 74, 5, 99),
@@ -165,7 +162,7 @@ class _arkaPlanState extends State<arkaPlan> {
                                 builder: (context) => BottomPage()));
                       });
                     },
-                    child: Text(
+                    child: const Text(
                       'Login',
                       style: TextStyle(color: Colors.white, fontSize: 25),
                     ),
@@ -178,7 +175,7 @@ class _arkaPlanState extends State<arkaPlan> {
                 decoration: BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(20),
-                    gradient: new LinearGradient(
+                    gradient: const LinearGradient(
                         colors: [
                           Color.fromARGB(255, 205, 3, 255),
                           Color.fromARGB(255, 74, 5, 99),
@@ -194,9 +191,9 @@ class _arkaPlanState extends State<arkaPlan> {
                 child: FlatButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => signIn()));
+                        MaterialPageRoute(builder: (_) => const signIn()));
                   },
-                  child: Text(
+                  child: const Text(
                     'Sign In',
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
@@ -209,7 +206,7 @@ class _arkaPlanState extends State<arkaPlan> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(20),
-                  gradient: new LinearGradient(
+                  gradient: const LinearGradient(
                       colors: [
                         Color.fromARGB(255, 205, 3, 255),
                         Color.fromARGB(255, 74, 5, 99),
@@ -227,7 +224,7 @@ class _arkaPlanState extends State<arkaPlan> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (_) => passwdPage()));
                   },
-                  child: Text(
+                  child: const Text(
                     'Forgot My Password',
                     style: TextStyle(color: Colors.white, fontSize: 12),
                   ),

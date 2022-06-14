@@ -70,9 +70,8 @@ class _backgroundState extends State<background> {
            ),
            Padding(
              padding: const EdgeInsets.all(20.0),
-             child: MaterialButton(
-               focusColor: Colors.yellow,
-               onPressed: () {
+             child: GestureDetector(
+               onDoubleTap: () {
                  Navigator.push(context,
                      MaterialPageRoute(builder: (_) => const accountSett()));
                }, child: Container(
@@ -98,9 +97,9 @@ class _backgroundState extends State<background> {
 
            Padding(
              padding: const EdgeInsets.all(20.0),
-             child: MaterialButton(
-               focusColor: Colors.yellow,
-               onPressed: () {
+             child: GestureDetector(
+
+               onLongPress: () {
                  Navigator.push(context,
                      MaterialPageRoute(builder: (_) => const guvenlikAyarlari()));
                }, child: Container(
@@ -127,9 +126,8 @@ class _backgroundState extends State<background> {
 
            Padding(
              padding: const EdgeInsets.all(20.0),
-             child: MaterialButton(
-               focusColor: Colors.yellow,
-               onPressed: () {
+             child: GestureDetector(
+               onHorizontalDragUpdate: (e) {
                  Navigator.push(context,
                      MaterialPageRoute(builder: (_) => const infoAbout()));
                }, child: Container(

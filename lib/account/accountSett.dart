@@ -25,8 +25,7 @@ class _accountSettState extends State<accountSett> {
         title: Image.asset('assets/images/campus logo.png',height: 45,),
         centerTitle: true,
           automaticallyImplyLeading: false,
-        leading: IconButton(icon: const Icon(Icons.arrow_back),onPressed: () {Navigator.push(context,
-            MaterialPageRoute(builder: (_) => BottomPage()));},),
+        leading: IconButton(icon: const Icon(Icons.arrow_back),onPressed: () {Navigator.pop(context);})
 
 
 

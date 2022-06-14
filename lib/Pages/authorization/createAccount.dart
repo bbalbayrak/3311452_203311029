@@ -194,7 +194,7 @@ class _arkaPlanState extends State<arkaPlan> {
                         MaterialPageRoute(builder: (_) => const signIn()));
                   },
                   child: const Text(
-                    'Sign In',
+                    'Sign Up',
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                 ),

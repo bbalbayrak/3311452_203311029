@@ -97,7 +97,7 @@ class _taslakState extends State<taslak> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    MaterialButton(onPressed:(){
+                    GestureDetector(onVerticalDragUpdate:(e){
 
                       Navigator.push(context,
                           MaterialPageRoute(builder: (_) => const wantsPage()));
@@ -120,7 +120,7 @@ class _taslakState extends State<taslak> {
                       ),
                     ),
 
-                    MaterialButton(onPressed:(){
+                    GestureDetector(onVerticalDragStart:(e){
 
                       Navigator.push(context,
                           MaterialPageRoute(builder: (_) => const casualPage()));
